@@ -114,8 +114,11 @@
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Temps de retour}
+\section{Séries annuelles des débits maximaux}
 \begin{frame}{Bases et principes}
+    \begin{alertblock}{Principes}
+        L'étude et la marche à suivre conviennent pour des séries statistiques avec un débit maximal annuel !
+    \end{alertblock}
     \begin{itemize}[label=$\rhd$]
         \item Crues moyennes : $T \in [2;5] \, \text{années}$
         \item Crues rares : $T \in \{10;30;100;300\}$ années et même plus selon les objectifs de protection
@@ -136,7 +139,7 @@
         \item Vérification de \textbf{la stationnarité} des données statistiques
         \item Vérification de \textbf{l'homogénéité} des données statistiques
         \item Calcul des temps de retours $T$
-        \item Calcul des paramètres de la \textit{loi de Gumbel} et de son débit $Q$
+        \item Calcul des paramètres de la \textbf{loi de Gumbel} et de son débit $Q$
     \end{enumerate}
 \end{frame}
 
@@ -163,29 +166,27 @@
     \begin{exampleblock}{Nota}
         $\rightarrow$ Vérification que cela ne varie pas en fonction des années (courbe de tendance) \\
         $\rightarrow$ Visualiser l'évolution des crues de pointe en fonction des années donne un bon aperçu d'une dérive quelconque
-      \end{exampleblock}
+    \end{exampleblock}
 \end{frame}
 
 \begin{frame}{2. Homogénéité}
-    \begin{columns}
-        \column{0.6\textwidth}
-        \begin{figure}
-            \centering
-            \includegraphics[width=5cm]{homogeneite.png}
-        \end{figure}
-        \column{0.4\textwidth}
-        \begin{tabular}{c|c|c|c|c}
+    \begin{figure}
+        \centering
+        \includegraphics[width=9cm]{homogeneite.png}
+    \end{figure}
+    \begin{table}
+        \centering
+        \begin{tabular}{c|c|c|c|c|c|c}
             \toprule
-            \textbf{Année} & \textbf{Jan} & \textbf{Fev} & \textbf{Mar} & \textbf{\dots} \\
+            \textbf{Année} & \textbf{Jan} & \textbf{Fev} & \textbf{Mar} & \textbf{\dots} & \textbf{Nov} & \textbf{Dec} \\
             \midrule
-            1965  & 11.3  &  9.7  & 14.0  & \dots \\
-            1966  & 16.6  & 18.5  & 16.6  & \dots \\ 
-            1967  & 16.7  & 18.8  & 20.0  & \dots \\
-            1968  & 19.2  & 14.6  & 21.0  & \dots \\
-            \dots & \dots & \dots & \dots & \dots \\
+            1965  & 11.3  &  9.7  & 14.0  & \dots & \dots & \dots \\
+            1966  & 16.6  & 18.5  & 16.6  & \dots & \dots & \dots \\ 
+            1967  & 16.7  & 18.8  & 20.0  & \dots & \dots & \dots \\
+            \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
             \bottomrule
-        \end{tabular}        
-    \end{columns}
+        \end{tabular} 
+    \end{table}
 \end{frame}
 
 \begin{frame}{3. Temps de retour}
@@ -194,6 +195,9 @@
 \begin{frame}{4. Loi de Gumbel}
 \end{frame}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Séries gonflées}
 
+\section{Séries tronquées}
 
 \end{document}
