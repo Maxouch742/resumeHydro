@@ -1,0 +1,53 @@
+\AtBeginDocument{%                   Changer les puces des listes
+	\renewcommand{\labelitemi}{\ding{228}}
+	\renewcommand{\labelitemii}{\ding{227}}
+	\renewcommand{\labelitemiii}{\ding{237}}
+	}
+
+\newcommand{\PointDD}[1]{\mathsf{#1} \left(E_{\mathsf{#1}}, ~  N_\mathsf{#1}\right)}
+\newcommand{\pointDD}[1]{\mathsf{#1} \left(x_{\mathsf{#1}}, ~  y_\mathsf{#1}\right)}
+\newcommand{\PointDDD}[1]{\mathsf{#1} \left(E_{\mathsf{#1}}, ~  N_\mathsf{#1}, ~ H_\mathsf{#1}\right)}
+\newcommand{\pointDDD}[1]{\mathsf{#1} \left(x_{\mathsf{#1}}, ~  y_\mathsf{#1}, ~ z_\mathsf{#1}\right)}
+\newcommand{\pt}[1]{$\mathsf{#1}$}
+
+\newcommand{\vect}[1]{\overrightarrow{\mathsf{#1}}}% vecteur{P1}
+
+\newcommand{\gis}[2]{\varphi_{\mathsf{#1 - #2}}}%    gis_{P1-P2}
+\newcommand{\dir}[1]{r_\mathsf{#1}}%                 r_{P1}
+\newcommand{\dis}[2]{d_{\mathsf{#1 - #2}}}%          d_{P1-P2}
+
+\newcommand{\E}[1]{E_\mathsf{#1}}%                   E_P1
+\newcommand{\N}[1]{N_\mathsf{#1}}%                   N_P1
+\newcommand{\y}[1]{y_\mathsf{#1}}%                   y_P1
+\newcommand{\x}[1]{x_\mathsf{#1}}%                   x_P1
+
+\newcommand{\ex}[1]{\vect{e_x^{#1}}}%                Vecteur orthonormal e_x
+\newcommand{\ey}[1]{\vect{e_y^{#1}}}%                Vecteur orthonormal e_y                        
+\newcommand{\ez}[1]{\vect{e_z^{#1}}}%                Vecteur orthonormal e_z
+
+\newcommand{\mat}[1]{\mathbf{#1}}%                   Matrice
+
+\newcommand{\onglet}[1]{{\color{red} \textit{#1}}}
+\newcommand{\bouton}[1]{{\color{blue} \textbf{#1}}}
+
+\newcommand{\X}{{\color{red} X}}
+\newcommand{\W}{{\color{darkgreen} WWWW}}
+\newcommand{\A}{{\color{red} AA}}
+\newcommand{\DMY}{{\color{red} AAAAMMJJ}}
+\newcommand{\DBX}{{\color{blue} DBX}}
+
+\newcommand\Warning{%              Panneau attention avec couleur
+ \makebox[1.4em][c]{%
+ \makebox[0pt][c]{\raisebox{.1em}{\small!}}%
+ \makebox[0pt][c]{\color{red}\Large$\bigtriangleup$}}}%
+
+
+%Avec babel, nous avons :
+%\og et \fg nous permettent d’obtenir les guillemets français « et »  ;
+%\no, \nos, \No et \Nos nous permettent d’obtenir « n° » et ses variantes majuscules et plurielles  ;
+%\ier, \iere, \ieme, \iers, \ieres et \iemes nous permettent d’obtenir « er », « re » et autres  ;
+%\primo, \secundo, \tertio et \quarto pour « 1° », « 2° », « 3° » et « 4° » et la commande \frenchenumerate avec un nombre en paramètre nous permet d’obtenir les autres nombres.
+
+\setlength\parindent{0pt}%       Taille de l'alinéa 
+\setlength{\fboxsep}{2mm}%       définir l'écart entre le texte et l'encadré
+\setlength{\fboxrule}{0.1mm} %     définir l'épaisseur du trait de l'encadré

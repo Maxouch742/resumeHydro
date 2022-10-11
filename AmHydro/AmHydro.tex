@@ -1,0 +1,59 @@
+\documentclass[12pt,openright,a4paper,onecolumn,twoside]{report}
+% 11pt      : le texte est en 11pt
+% openright : un chapitre commence toujours sur une page impaire
+% a4paper   : taille de la page
+% onecolumn : texte sur une colonne
+% twoside   : pour faire une impression en recto-verso
+
+
+\input{configuration/constantes.tex}
+\input{configuration/package.tex}
+\input{configuration/commande_perso.tex}
+\input{configuration/style_entete_pied_page.tex}
+
+\input{configuration/config_listing.tex}
+\input{configuration/config_siunitix.tex}
+
+\begin{document}
+
+    \newgeometry{margin=2cm}%                          création d'une nouvelle géométrie pour seulement la page de titre
+    \input{introduction/pageTitre.tex}
+    \restoregeometry
+
+    %\input{introduction/preambule.tex}
+
+    % Première partie (numérotation en chiffres romain)
+    \pagestyle{front}  
+    \tableofcontents
+    \newpage
+
+    % Deuxième partie (numérotation en chiffres arabes)
+    \pagestyle{main}
+
+    \input{chapter/introduction.tex}
+    \input{chapter/calculDebit.tex}
+        
+
+    % Troisième partie (chapitres plus numérotés)
+    \pagestyle{back}
+    \appendix
+
+    
+    %\listoffigures
+    %\listoftables
+
+    %\printindex
+
+\end{document}
+
+
+% Structure normale :
+% -> Page de garde
+% -> Dédicaces et remerciements
+% -> Table des matières
+% -> Liste des figures et des tableaux
+% -> Préface
+% -> Corps du texte
+% -> Bibliographie
+% -> Annexes
+% -> Glossaire et index

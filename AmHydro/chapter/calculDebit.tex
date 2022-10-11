@@ -1,0 +1,64 @@
+\chapter{Calculs et prévisions des débits en fonction du temps de retour}
+
+\section{Explication}
+
+\section{Séries annuelles, avec débits maximaux}
+\fbox{ %fbox est utilisé pour voir les bords de la minipage
+    \begin{minipage}[l]{17cm}
+        L'étude est la marche à suivre conviennet pour des séries statistiques avec un débit maximal annuel ! \\
+        Cela veut dire que pour chaque année (et chaque mois) nous avons le débit maximal, le tout sur une période donnée (plusieurs années) (ex. Tab. \ref{tab:serieAnnuelleMaximum})
+    \end{minipage}
+}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \textbf{Année} & \textbf{Jan} & \textbf{Fev} & \textbf{Mar} & \textbf{Avr} & \textbf{Mai} & \textbf{Juin} & \textbf{Jui} & \textbf{Aoû} & \textbf{Sep} & \textbf{Oct} & \textbf{Nov} & \textbf{Dec} \\
+        \hline \hline
+        \textbf{1965}  & 11.3 &  9.7 & 14.0 & 14.5 & 160 & 205 & 205 & \cellcolor{red}350 & 145.0 &  84 &  21 & 17.5 \\
+        \hline
+        \textbf{1966}  & 16.6 & 18.5 & 16.6 & 47.0 & 105 & \cellcolor{red}175 & 155 & 150 &  97.0 & 125 &  25 & 19.5 \\
+        \hline
+        \textbf{1967}  & 16.7 & 18.8 & 20.0 & 39.0 & 145 & \cellcolor{red}320 & 240 & 210 & 110.0 &  75 &  38 & 35.0 \\
+        \hline
+        \textbf{1968}  & 19.2 & 14.6 & 21.0 & 53.0 & 125 & 205 & \cellcolor{red}220 & 115 & 140.0 &  57 & 185 & 40.0 \\
+        \hline
+        \textbf{1969}  & 14.8 & 13.4 & 13.9 & 32.0 & 120 & \cellcolor{red}205 & 190 & 175 &  82.0 &  65 &  45 & 22.0 \\
+        \hline
+        \textbf{\dots} &      &      &      &      &     &     &     &     &       &     &     &      \\
+        \hline
+        \textbf{1992}  & 13.5 & 12.5 & 16.7 & 62.0 & 110 & \cellcolor{red}290 & 225 & 215 & 175.0 &  75 &  46 & 38.0 \\
+        \hline
+        \textbf{1993}  & 28.0 & 42.0 & 38.0 & 49.0 & 125 & 200 & 180 & 150 & \cellcolor{red}460.0 & 170 &  37 & 27.0 \\
+        \hline
+    \end{tabular}
+    \caption{Tableau avec les débits maximums pour chaque mois entre les années 1965 et 1993}
+    \label{tab:serieAnnuelleMaximum}
+\end{table}
+
+\subsection{Procédure pour déterminer et extrapoler les temps de retour}
+\begin{enumerate}
+    \item \textbf{\underline{Vérification de la stationnarité des données statistiques :}} \\
+    \begin{itemize}
+        \item Graphique des débits maximum par années
+        \item Vérification que cela ne varie par en fonction des années (courbe de tendance)
+        \item Visualiser l'évolution des crues de pointe en fonction des années donne un bon aperçu d'une dérive quelconque
+        \item \Warning Si les données ne sont pas stationnaires ; cela ne sert à rien de continuer la procédure pour déterminer les débits extrapolés
+    \end{itemize}
+    \bigskip
+    \item \textbf{\underline{Vérification de l'homogénéité des données statistiques :}}
+    \begin{itemize}
+        \item Vérification optionnelle (car implique d'avoir les débits maximaux mensuels)
+        \item Vérification que cela ne varie par en fonction des années (courbe de tendance)
+        \item Visualiser l'évolution des crues de pointe en fonction des années donne un bon aperçu d'une dérive quelconque
+    \end{itemize}
+    \bigskip
+    \item \textbf{\underline{Calcul des temps de retour $T$ :}}
+    \item \textbf{\underline{Calcul des paramètres de la loi de Gumbel :}}
+    \item \textbf{\underline{Extrapolation d'un débit en fonction du temps de retour :}}
+\end{enumerate}
+
+
+\section{Séries gonflées}
+\section{Séries tronquées}
