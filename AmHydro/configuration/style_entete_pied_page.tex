@@ -1,0 +1,43 @@
+%============================= STYLEs DE PAGE ===========================
+\pagestyle{fancy}
+\fancypagestyle{front}{%
+  \fancyhf{}%on vide les en-têtes
+	\renewcommand{\headrulewidth}{0.4pt}
+  \fancyhead[L]{\leftmark}
+  \fancyhead[C]{}
+  \fancyhead[R]{\etudiant}
+  \renewcommand{\footrulewidth}{0.4pt}
+  \fancyfoot[L]{\includegraphics[height=0.7cm]{logo_heig_ico.pdf}}
+  }
+
+\fancypagestyle{main}{
+	\renewcommand{\headrulewidth}{0.4pt}
+  \fancyhead[L]{\leftmark}
+  \fancyhead[C]{}
+  \fancyhead[R]{\etudiant}
+  \renewcommand{\footrulewidth}{0.4pt}
+  \fancyfoot[L]{\includegraphics[height=0.7cm]{logo_heig_ico.pdf}}
+  \fancyfoot[C]{}
+  \fancyfoot[R]{Page \thepage ~sur \pageref{LastPage}}
+  }
+
+\fancypagestyle{back}{%
+  \fancyhf{}%on vide les en-têtes
+  \fancyhead[L]{\leftmark}
+  \fancyhead[C]{}
+  \fancyhead[R]{\etudiant}
+  \fancyfoot[L]{\includegraphics[height=0.7cm]{logo_heig_ico.pdf}}
+  \fancyfoot[R]{Page \thepage ~sur \pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+  }
+
+%\fancypagestyle{plain}{ %
+% \fancyhf{} % remove everything
+%  \lhead{\begin{textblock*}{3cm}(2cm,8mm)
+%    \includegraphics[height=15mm]{HEIG-VD.png}
+%    \end{textblock*}}
+%    \rfoot{Page \thepage ~sur \pageref{LastPage}}
+%  \renewcommand{\headrulewidth}{0pt} % remove lines as well
+%  \renewcommand{\footrulewidth}{0.5pt}
+%}
