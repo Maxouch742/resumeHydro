@@ -1,6 +1,15 @@
 from matplotlib import pyplot as plt
 
 
+def plot_Stationnarite(data, key) :
+
+    for cle, donne in data.items() :
+        plt.plot(cle,donne[key],'o')
+    plt.grid()
+    plt.xlabel("Années [-]")
+    plt.ylabel("Débit [m3/s]")
+    plt.title("Stationnarité")
+
 if __name__ == "__main__" :
 
     seriesAnnuelles = {}
@@ -39,3 +48,5 @@ if __name__ == "__main__" :
         liste = data['debit_mensuel']
         data.update({'debit_max':max(liste)})
         data.update({'debit_min':min(liste)})
+
+    plot_Stationnarite(seriesAnnuelles, "debit_max")
