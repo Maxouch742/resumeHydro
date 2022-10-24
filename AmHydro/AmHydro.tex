@@ -12,7 +12,7 @@
 \input{configuration/style_entete_pied_page.tex}
 
 \input{configuration/config_listing.tex}
-\input{configuration/config_siunitix.tex}
+%\input{configuration/config_siunitix.tex}
 
 \begin{document}
 
@@ -28,7 +28,7 @@
     \newpage
 
     % Deuxième partie (numérotation en chiffres arabes)
-    \pagestyle{main}
+    \thispagestyle{main}
 
     \input{chapter/introduction.tex}
     \input{chapter/calculDebit.tex}
@@ -37,6 +37,8 @@
     % Troisième partie (chapitres plus numérotés)
     \pagestyle{back}
     \appendix
+    \input{annexes/formules.tex}
+    \input{annexes/seriesAnnuelles.tex}
 
     
     %\listoffigures

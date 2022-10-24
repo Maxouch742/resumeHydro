@@ -1,0 +1,111 @@
+\chapter{Formules}
+
+
+
+\section{Conversion volumes}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{3}{|c|}{\textbf{$m^3$}} & \multicolumn{3}{|c|}{\textbf{$dm^3$}} & \multicolumn{3}{|c|}{\textbf{$cm^3$}} & \multicolumn{3}{|c|}{\textbf{$mm^3$}} \\
+        \hline
+         & &                                 & $hL$ & $daL$ & $L$                    & $dL$ & $cL$ & $mL$                    & & & \\
+        \hline \hline
+         & &                               1 & 0    &   0   & 0                      & & &                                   & & & \\  
+        \hline
+         & &                               0. & 0    &   0   & 1                     & & &                                   & & & \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\section{Conversion débits}
+\begin{align*}
+    \MS{1} &= \LS{1000}   \\
+           &= \MH{3.6e3} \\
+           &= \LH{3.6e6} \\
+\end{align*}
+
+
+\section{Temps de retour}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        \textbf{Nom} & \textbf{Formule}            & \textbf{Notes}     \\
+        \toprule
+        Weibull      & $\cfrac{n+1}{r}$            & Utilisée aux USA   \\
+        \midrule
+        Médiane      & $\cfrac{n+0.365}{r-0.3175}$ &                    \\
+        \midrule
+        Hosking      & $\cfrac{n}{r-0.35}$         &                    \\
+        \midrule
+        Blom         & $\cfrac{n+0.25}{r-0.375}$   &                    \\
+        \midrule
+        Cunnane      & $\cfrac{n+0.20}{r-0.40}$    &                    \\
+        \midrule
+        Gringorten   & $\cfrac{n+0.12}{r-0.44}$    &                    \\
+        \arrayrulecolor{red} \midrule
+        Hazen        & $\cfrac{n}{r-0.5}$          & Utilisée en France \\
+        \bottomrule
+    \end{tabular}
+    \caption{Différentes formules de calculs des temps de retour}
+    \label{tab:formuleTempsRetour}
+\end{table}
+
+
+\section{Loi de Gumbel -- Séries annuelles}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|cc|c}
+        \# & \textbf{Paramètres}                & \textbf{Formules}                                                                                                                         & \textbf{Commentaires}      \\
+        \hline
+        1  & $\overline{Q}_\text{mes}$          & $\overline{Q}_\text{mes} = \cfrac{1}{n} \cdot \displaystyle{\sum_{i=0}^{n} Q_i}$                                                          & Moyenne des débits mesurés \\
+        \hline
+        2  & $\sigma_{\overline{Q}_\text{mes}}$ & $\sigma_{\overline{Q}_\text{mes}} = \sqrt{\cfrac{1}{n} \cdot \displaystyle{\sum_{i=0}^{n} \left(Q_i - \overline{Q}_\text{mes}\right)^2}}$ & Ecart-type de la moyenne des débits mesurés \\
+        \hline
+        3  & $a$                                & $a = \overline{Q}_\text{mes} - 0.5772 \cdot b$                                                                                            & \\
+        \hline
+        4  & $b$                                & $b = \cfrac{\sqrt{6}}{\pi} \cdot \sigma_{\overline{Q}_\text{mes}}$                                                                        & \\
+        \hline
+        5  & $F(Q)$                             & $F(Q) = 1-\cfrac{1}{T}$                                                                                                                   & \\
+        \hdashline                   
+        6  & $F(Q)$                             & $F(Q) = e^{-e^{\frac{- \left(Q-a\right)}{b}}}$                                                                                            & \\
+        \hline
+        7  & $Q$                                & $Q = a + b \cdot U$                                                                                                                       & Débit selon la loi de Gumbel \\
+        \hline
+        8  & $U$                                & $U = -\ln \left[ -\ln \left(F(Q)\right)\right]$                                                                                          & Variable réduite de Gumbel   \\
+    \end{tabular}
+    \caption{Ajustement statistique par la loi de Gumbel}
+    \label{tab:loiGumbel}
+\end{table}
+
+
+\section{Loi de Gumbel -- Séries tronquées}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|cc|c}
+        \# & \textbf{Paramètres}                & \textbf{Formules}                                                                                                                         & \textbf{Commentaires}      \\
+        \hline
+        1  & $\overline{Q}_\text{mes}$          & $\overline{Q}_\text{mes} = \cfrac{1}{n} \cdot \displaystyle{\sum_{i=0}^{n} Q_i}$                                                          & Moyenne des débits mesurés \\
+        \hline
+        2  & $\sigma_{\overline{Q}_\text{mes}}$ & $\sigma_{\overline{Q}_\text{mes}} = \sqrt{\cfrac{1}{n} \cdot \displaystyle{\sum_{i=0}^{n} \left(Q_i - \overline{Q}_\text{mes}\right)^2}}$ & Ecart-type de la moyenne des débits mesurés \\
+        \hline
+        3  & $a_\text{exp}$                     & $a_\text{exp} = \overline{Q}_\text{mes} - b_\text{exp}$                                                                                   & \\
+        \hline
+        4  & $b_\text{exp}$                     & $b_\text{exp} = \sigma_{\overline{Q}_\text{mes}}$                                                                                         & \\
+        \hline
+        5  & $\lambda$                          & $\lambda = \cfrac{\text{nombre de débits}}{\text{nombre de valeurs}}$                                                                     & \\                                               
+        \hline
+        6  & $a$                                & $a = a_\text{exp} + b_\text{exp} \cdot \ln \left(\lambda\right)$                                                                          & \\                                                                                         
+        \hline
+        7  & $F(Q)$                             & $F(Q) = 1-\cfrac{1}{T}$                                                                                                                   & \\
+        \hdashline                   
+        8  & $F(Q)$                             & $F(Q) = e^{-e^{\frac{- \left(Q-a\right)}{b}}}$                                                                                            & \\
+        \hline
+        9  & $Q$                                & $Q = a + b \cdot U$                                                                                                                       & Débit selon la loi de Gumbel \\
+        \hline
+        10 & $U$                                & $U = -\ln \left[ -\ln \left(F(Q)\right)\right]$                                                                                          & Variable réduite de Gumbel   \\
+    \end{tabular}
+    \caption{Ajustement statistique par la loi exponentielle et la loi de Gumbel}
+    \label{tab:loiGumbel}
+\end{table}
