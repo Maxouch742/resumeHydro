@@ -126,7 +126,23 @@ def plot_TempsRetour(data) :
     plt.ylabel("Débit [$m^3/s$]")
     plt.title("Temps de retour calculé")
     plt.savefig("tempsRetour.png")
-    plt.legend()
+    plt.legend(loc=4)
+
+
+def calcul_Gumbel_serieAnnuelle(data_dict) :
+
+    debit = []
+    for data in data_dict.values() :
+        debit.append(data['debit_max'])
+    
+    debit = np.array(debit)
+    moy = np.mean(debit)
+    std = np.std(debit)
+    b = np.sqrt(6) * np.pi * std
+    a = moy - 0.5772 * b
+
+    
+
     
 
 if __name__ == "__main__" :
@@ -172,4 +188,6 @@ if __name__ == "__main__" :
     #plot_Homogeneite(seriesAnnuelles)
 
     seriesAnnuelles = calcul_TempsRetour(seriesAnnuelles, ['Weibull'])
-    plot_TempsRetour(seriesAnnuelles)
+    #plot_TempsRetour(seriesAnnuelles)
+
+    seriesAnnuelles = calcul_Gumbel_serieAnnuelle(seriesAnnuelles)
