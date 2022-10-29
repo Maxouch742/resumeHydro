@@ -1,14 +1,13 @@
 \chapter{Analyse de séries de données de débits}
 
 \section{Explication}
+\begin{itemize}
+    \item \underline{\textbf{Temps de retour moyens :}} 2 à 5 ans
+    \item \underline{\textbf{Temps de retour rares :}} 10, 30, 100, 300 ans, \dots ! Cela dépend surtout des objectifs de protection.
+\end{itemize}
 
 \section{Séries annuelles, avec débits maximaux}
-\fbox{ %fbox est utilisé pour voir les bords de la minipage
-    \begin{minipage}[l]{17cm}
-        L'étude est la marche à suivre conviennet pour des séries statistiques avec un débit maximal annuel ! \\
-        Cela veut dire que pour chaque année (et chaque mois) nous avons le débit maximal, le tout sur une période donnée (plusieurs années) (ex. Tab. \ref{tab:serieAnnuelleMaximum})
-    \end{minipage}
-}
+
 
 \begin{table}[H]
     \centering
@@ -54,60 +53,7 @@
         \item Vérification que cela ne varie par en fonction des années (courbe de tendance)
         \item Visualiser l'évolution des crues de pointe en fonction des années donne un bon aperçu d'une dérive quelconque
     \end{itemize}
-    \bigskip
-    \item \textbf{\underline{Calcul des temps de retour $T$ :}}
-    \begin{enumerate}
-        \item Classer les débits par ordre décroissant (du plus grand au plus petit)
-        \item Inscrire le rang de chaque débit
-        \item Calculer le temps de retour selon la formule choisie (cf. Tab. \ref{tab:formuleTempsRetour}) \\
-        Conseil : utiliser la \formule{\underline{formule de Hazen}} \\
-    \end{enumerate}
-    \bigskip
-    \item \textbf{\underline{Calcul des paramètres de la loi de Gumbel :}} \\
-    \textit{Appelé aussi ajustement statistiques} 
-    \begin{enumerate}
-        \item Calcul de la fonction $F(Q_{obs})$
-        \item Calcul des divers paramètres des données statistiques :
-        \begin{itemize}
-            \item Moyenne des débits observés \formule{$\bar{Q}_{obs} = \Sigma Q_{obs_{i}}$}
-            \item Ecart-type de la moyenne \formule{$\sigma_{Q_{obs}}$} (Excel : \texttt{ECARTYPE.STANDARD()})
-            \item Paramètre \formule{$a = \bar{Q}_{obs} - 0.5772 \cdot b$}
-            \item Paramètre \formule{$b = \cfrac{\sqrt{6}}{\pi} \cdot \sigma_{Q_{obs}}$}
-        \end{itemize}
-        \item Calcul du débit Gumbel :
-        \begin{enumerate}
-            \item \formule{$U = -\ln \left( -\ln \left( F(Q_{obs}) \right) \right)$}
-            \item \formule{$Q_{Gumbel} = a + b\cdot U$}
-        \end{enumerate}
-        \item \graphique{Créer le graphique \textbf{GRAPH01} avec les éléments suivants :}
-        \begin{itemize}
-            \item \graphique{Abscisse : $U$ (variable réduite de la loi de Gumbel)} \\
-            \graphique{Échelle logarithmique}
-            \item \graphique{Ordonnée : $Débit  \;  \text{[m3/s]}$}
-            \item \graphique{Données : débits annuels mesurés / débits Gumbel}
-        \end{itemize}
-        \item \graphique{Créer le graphique \textbf{GRAPH02} avec les éléments suivants :}
-        \begin{itemize}
-            \item \graphique{Abscisse : $Temps \; retour  \; [années]$} \\
-            \graphique{Échelle logarithmique}
-            \item \graphique{Ordonnée : $Débit  \;  \text{[m3/s]}$}
-            \item \graphique{Données : débits annuels mesurés / débits Gumbel}
-        \end{itemize}
-    \end{enumerate}
-    \bigskip
-    \item \textbf{\underline{Extrapolation d'un débit en fonction du temps de retour :}}
-    \begin{enumerate}
-        \item Reprendre les paramètres \formule{$a$} et \formule{$b$} déterminer plus tôt
-        \item Fixer les temps de retour \formule{$T_{extrapolé}$} souhaités (5, 10, 20, 30, 50, 100, 300 ans)
-        \item Calcul de \formule{$F(Q) = 1-\cfrac{1}{T_{extrapolé}}$}
-        \item Calcul de \formule{$U = -\ln \left( -\ln \left( F(Q) \right) \right)$}
-        \item Calcul de \formule{$Q_{extrapolé} = a + b \cdot U$}
-        \item Ajouter la donnée \formule{{$Q_{extrapolé}$}} sur les \graphique{\textbf{GRAPH01}} et \graphique{\textbf{GRAPH02}}
-    \end{enumerate}
 \end{enumerate}
-
-
-
 
 \section{Séries gonflées}
 Une série gonflée est une série de données statistiques où nous avons \underline{2 ou plus débits maximaux par année}.

@@ -53,9 +53,11 @@
 \setlength{\fboxrule}{0.1mm} %     définir l'épaisseur du trait de l'encadré
 
 
-\newcommand{\formule}[1]{{\color{purple} #1}}
-\newcommand{\graphique}[1]{{\color{orange} #1}}
+%\newcommand{\formule}[1]{{\color{purple} #1}}
+%\newcommand{\graphique}[1]{{\color{orange} #1}}
 
+\definecolor{vertFonce}{RGB}{0, 153, 0}
+\definecolor{orange}{RGB}{255, 128, 0}
 
 %%%%% HYDROLOGIE
 \newcommand{\ms}{\unit{\metre\cubic\per\second}}%          [m3/s]
@@ -66,3 +68,6 @@
 \newcommand{\LS}[1]{\qty{#1}{\litre\per\second}}%          number [L/s]
 \newcommand{\lh}{\unit{\litre\per\hour}}%                  [L/h]
 \newcommand{\LH}[1]{\qty{#1}{\litre\per\hour}}%            number [L/h]
+
+\newcommand{\excel}[1]{{\color{vertFonce} \underline{\textit{Fonction Excel :}} #1}}
+\newcommand{\formule}[2]{{\color{orange} \textit{(Formule #1, Tab. #2)}}}

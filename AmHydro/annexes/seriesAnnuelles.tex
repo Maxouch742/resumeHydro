@@ -1,5 +1,12 @@
 \chapter{Calculer un $Q$ pour un $T_\text{retour}$ donné -- \textit{Séries annuelles}}
 
+\fbox{ %fbox est utilisé pour voir les bords de la minipage
+    \begin{minipage}[l]{17cm}
+        L'étude et la marche à suivre conviennent pour des séries statistiques avec un débit maximal annuel ! \\
+        Cela veut dire que pour chaque année (et chaque mois) nous avons le débit maximal, le tout sur une période donnée (plusieurs années) (ex. Tab. \ref{tab:serieAnnuelleMaximum})
+    \end{minipage}
+}
+
 Nous avons les données suivantes :
 \begin{table}[H]
     \centering
@@ -54,6 +61,42 @@ Afin de contrôler l'homogénéité des débits, il faut tracer un graphique ave
 
 
 
-\section{Calcul des paramètres de la loi de Gumbel}
-\section{Extrapolation d'un débit en fonctio du temps de retour}
+\section{Calcul des paramètres de la loi de Gumbel} \label{sec:parametreLoiGumbel}
+\begin{enumerate}
+    \item Calcul de la fonction $F(Q_\text{obs})$ pour chaque débit \formule{5}{\ref{tab:loiGumbel}} ;
+    \item Calcul des divers paramètres de la série statistique :
+    \begin{itemize}
+        \item Moyenne des débits observés ; \\
+        \excel{=MOYENNE()}
+        \item Ecart-type de la moyenne des débits observés ; \\
+        \excel{=ECARTYPE.STANDARD()}
+        \item Paramètre $a$ \formule{3}{\ref{tab:loiGumbel}}
+        \item Paramètre $b$ \formule{4}{\ref{tab:loiGumbel}}
+    \end{itemize}
+    \item Calcul du débit Gumbel pour chaque temps de retour
+    \begin{enumerate}
+        \item Paramètre $U$ \formule{8}{\ref{tab:loiGumbel}}
+        \item Débit $Q_\text{Gumbel}$ \formule{7}{\ref{tab:loiGumbel}}
+    \end{enumerate}
+    \item Créer les graphiques suivants \\
+    \begin{tabular}{lll}
+        \toprule
+                                    & \textbf{Variable réduite $U$} & \textbf{Débit selon la loi de Gumbel} \\
+        \midrule
+        \multirow{2}{*}{Abscisse}   & Variable réduite $U$ [-]      & Temps [années]                        \\
+                                    &                               & Échelle logarithmique                 \\            
+        Ordonnée                    & Débit [\ms]                   & Débit [\ms]                           \\
+        \midrule
+        Courbes :                   & ...                           & ...                                   \\
+        \midrule
+        Références                  & Figure X                      & Figure X                              \\
+        \bottomrule
+    \end{tabular}
+\end{enumerate}
 
+\section{Extrapolation d'un débit en fonction du temps de retour}
+\begin{enumerate}
+    \item Poser les temps de retour rares que vous souhaitez
+    \item Procédez à l'étape 3 du paragraphe \ref{sec:parametreLoiGumbel}
+    \item Ajoutez la courbe sur les graphiques X et X
+\end{enumerate}
