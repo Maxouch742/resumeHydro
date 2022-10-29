@@ -1,14 +1,21 @@
 from matplotlib import pyplot as plt
 import numpy as np
+import math
 
 def plot_Stationnarite(data, key) :
 
+    debit_max = np.nan
     fig = plt.figure()
     for cle, donne in data.items() :
         plt.plot(cle,donne[key],marker='o',color='red')
+        if np.isnan(debit_max) == True :
+            debit_max = donne[key]
+        elif debit_max < donne[key] :
+            debit_max = donne[key]
     plt.grid()
     plt.xlabel("Années")
     plt.ylabel("Débit [$m^3/s$]")
+    plt.ylim(0,600)
     plt.title("Stationnarité")
     fig.autofmt_xdate(rotation=45)
     plt.savefig("stationnarite.png")
@@ -58,7 +65,7 @@ if __name__ == "__main__" :
     seriesAnnuelles.update({'1983':{'debit_mensuel':[27.0,66.0,56.0,70.0,155.0,180.0,290.0,235.0,175.0,090.0,040.0,15.2]}})
     seriesAnnuelles.update({'1984':{'debit_mensuel':[23.0,36.0,35.0,60.0,067.0,165.0,225.0,205.0,125.0,081.0,036.0,27.0]}})
     seriesAnnuelles.update({'1985':{'debit_mensuel':[37.0,32.0,12.9,44.0,140.0,190.0,200.0,160.0,130.0,097.0,041.0,17.2]}})
-    seriesAnnuelles.update({'1986':{'debit_mensuel':[34.0,37.0,15.9,58.0,190.0,225.0,247.0,005.0,170.0,125.0,088.0,40.8]}})
+    seriesAnnuelles.update({'1986':{'debit_mensuel':[34.0,37.0,15.9,58.0,190.0,225.0,247.0,095.0,170.0,125.0,088.0,40.8]}})
     seriesAnnuelles.update({'1987':{'debit_mensuel':[36.0,32.0,03.0,88.0,097.0,295.0,305.0,495.0,160.0,155.0,032.0,28.0]}})
     seriesAnnuelles.update({'1988':{'debit_mensuel':[17.1,32.0,03.0,58.0,140.0,140.0,230.0,185.0,150.0,190.0,075.0,29.0]}})
     seriesAnnuelles.update({'1989':{'debit_mensuel':[14.3,21.0,03.0,52.0,160.0,145.0,210.0,185.0,110.0,076.0,055.0,23.0]}})

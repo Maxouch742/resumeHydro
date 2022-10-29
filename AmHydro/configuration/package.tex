@@ -34,7 +34,6 @@
 %% Packages supplémentaires pour rapport
 \usepackage{pdfpages}%               inclure des pages complètes d'un document pdf avec la commande \includepdf[pages=1,3,8-11,19-last]{fichier.pdf}
 \usepackage{makeidx}%                créer un index. Pour ajouter un mot, il faut utiliser \index{mot}
-\usepackage{lipsum}%                 
 \usepackage{fancyhdr}%               entête et pied de page
 %\pagestyle{headings}
 \usepackage{enumitem}%               liste numéroté
@@ -46,8 +45,9 @@
 \usepackage{lastpage}%               référence à la dernière page (utile pour la numérotation des pages dans les pieds de pages)
 \usepackage{colortbl}%               colorier des cellules
 \usepackage{arydshln}%               traits tillés dans les tableaux
-
-\NoAutoSpaceBeforeFDP%                Enlève l'espace automatique avant ":" ça permet notamment d'écrire 1:1000 sans avoir un espace moche (Cet espace est rajouté par le package babel)
+\usepackage{longtable}%              Tableaux sur plusieurs pages
+\usepackage{lipsum}%                 just for dummy text- not needed for a longtable             
+\NoAutoSpaceBeforeFDP%               Enlève l'espace automatique avant ":" ça permet notamment d'écrire 1:1000 sans avoir un espace moche (Cet espace est rajouté par le package babel)
 
 
 %========================== COMMANDES DIVERSES ========================== 
