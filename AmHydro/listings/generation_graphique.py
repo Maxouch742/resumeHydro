@@ -1,5 +1,6 @@
 from matplotlib import pyplot as plt
 import numpy as np
+import operator
 import math
 
 def plot_Stationnarite(data, key) :
@@ -15,8 +16,8 @@ def plot_Stationnarite(data, key) :
     plt.grid()
     plt.xlabel("Années")
     plt.ylabel("Débit [$m^3/s$]")
-    plt.ylim(0,600)
-    plt.title("Stationnarité")
+    plt.ylim(0,round(debit_max, -2))
+    plt.title("Stationnarité ({:s}-{:s})".format(list(data.keys())[0], list(data.keys())[-1]))
     fig.autofmt_xdate(rotation=45)
     plt.savefig("stationnarite.png")
 
@@ -40,6 +41,93 @@ def plot_Homogeneite(data) :
     fig.autofmt_xdate(rotation=45)
     plt.savefig("homogeneite.png")
 
+
+def calcul_TempsRetour(data_dict, formule=["Hazen"]) :
+
+    data_tried = dict(sorted(data_dict.items(), key=lambda x: x[1]['debit_max'], reverse=True))
+    
+    rang = 1
+    for key, data in data_tried.items() :
+        data.update({"rang":rang})
+        rang += 1
+        data.update({"temps_retour_Hazen":tempsRetour('Hazen', rang, len(data_tried))})
+        for form in formule :
+            if form != 'Hazen' or form != 'hazen' :
+                name = "temps_retour_" + form
+                data.update({name:tempsRetour(form, rang, len(data_tried))})
+
+    return data_tried
+
+
+def tempsRetour(name, rang, annee) :
+
+    if name.lower() == "hazen" :
+        tRetour = annee / (rang - 0.5)
+    elif name.lower() == 'weibull' :
+        tRetour = (annee + 1) / rang
+    elif name.lower() == 'mediane' :
+        tRetour = (annee + 0.365) / (rang - 0.3175)
+    elif name.lower() == 'hosking' :
+        tRetour = (annee) / (rang - 0.35)
+    elif name.lower() == 'blom' :
+        tRetour = (annee + 0.25) / (rang - 0.375)
+    elif name.lower() == 'cunnane' :
+        tRetour = (annee + 0.20) / (rang - 0.40)
+    elif name.lower() == 'gringorten' :
+        tRetour = (annee + 0.12) / (rang - 0.44)
+    else :
+        tRetour = np.nan
+    return tRetour
+
+
+def plot_TempsRetour(data) :
+
+    fig = plt.figure()
+
+    debit_max = np.nan
+
+    Tretour = {}
+    Tretour.update({"Hazen":[]})
+    Tretour.update({"Weibull":[]})
+    Tretour.update({"Mediane":[]})
+    Tretour.update({"Hosking":[]})
+    Tretour.update({"Blom":[]})
+    Tretour.update({"Cunnane":[]})
+    Tretour.update({"Gringorten":[]})
+    
+    for donne in data.values() :
+        Tretour["Hazen"].append([donne["temps_retour_Hazen"],donne['debit_max']])
+        if np.isnan(debit_max) == True :
+            debit_max = donne["debit_max"]
+        elif debit_max < donne["debit_max"]:
+            debit_max = donne["debit_max"]
+        if "temps_retour_Weibull" in list(donne.keys()) :
+            Tretour["Weibull"].append([donne["temps_retour_Weibull"],donne['debit_max']])
+        if "temps_retour_Mediane" in list(donne.keys()) :
+            Tretour["Mediane"].append([donne["temps_retour_Mediane"],donne['debit_max']])
+        if "temps_retour_Hosking" in list(donne.keys()) :
+            Tretour["Hosking"].append([donne["temps_retour_Hosking"],donne['debit_max']])
+        if "temps_retour_Blom" in list(donne.keys()) :
+            Tretour["Blom"].append([donne["temps_retour_Blom"],donne['debit_max']])
+        if "temps_retour_Cunnane" in list(donne.keys()) :
+            Tretour["Cunnane"].append([donne["temps_retour_Cunnane"],donne['debit_max']])
+        if "temps_retour_Gringorten" in list(donne.keys()) :
+            Tretour["Gringorten"].append([donne["temps_retour_Gringorten"],donne['debit_max']])
+    
+    for key, data in Tretour.items() :
+        if len(data) > 0 :
+            arrayyy = np.array(data)
+            plt.plot(arrayyy[:,0], arrayyy[:,1], 'o-', label=key)
+
+
+    plt.grid()
+    plt.xlabel("Temps de retour [année]")
+    plt.ylim(0,round(debit_max, -2)+100)
+    plt.ylabel("Débit [$m^3/s$]")
+    plt.title("Temps de retour calculé")
+    plt.savefig("tempsRetour.png")
+    plt.legend()
+    
 
 if __name__ == "__main__" :
 
@@ -81,6 +169,7 @@ if __name__ == "__main__" :
         data.update({'debit_min':min(tab)})
 
     #plot_Stationnarite(seriesAnnuelles, "debit_max")
+    #plot_Homogeneite(seriesAnnuelles)
 
-    plot_Homogeneite(seriesAnnuelles)
-    
+    seriesAnnuelles = calcul_TempsRetour(seriesAnnuelles, ['Weibull'])
+    plot_TempsRetour(seriesAnnuelles)
