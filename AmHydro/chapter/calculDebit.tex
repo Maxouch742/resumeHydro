@@ -6,35 +6,31 @@
     \item \underline{\textbf{Temps de retour rares :}} 10, 30, 100, 300 ans, \dots ! Cela dépend surtout des objectifs de protection.
 \end{itemize}
 
-\section{Séries annuelles, avec débits maximaux}
-
-
-\begin{table}[H]
+\section{Séparation des crues}
+\begin{figure}[H]
     \centering
-    \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|c|}
-        \hline
-        \textbf{Année} & \textbf{Jan} & \textbf{Fev} & \textbf{Mar} & \textbf{Avr} & \textbf{Mai} & \textbf{Juin} & \textbf{Jui} & \textbf{Aoû} & \textbf{Sep} & \textbf{Oct} & \textbf{Nov} & \textbf{Dec} \\
-        \hline \hline
-        \textbf{1965}  & 11 & \cellcolor{green}10 & 14 & 15 & 160 & 205 & 205 & \cellcolor{red}350 & 145 &  84 &  21 & 18 \\
-        \hline
-        \textbf{1966}  & \cellcolor{green}17 & 19 & 17 & 47 & 105 & \cellcolor{red}175 & 155 & 150 &  97 & 125 &  25 & 20 \\
-        \hline
-        \textbf{1967}  & \cellcolor{green}17 & 19 & 20 & 39 & 145 & \cellcolor{red}320 & 240 & 210 & 110 &  75 &  38 & 35 \\
-        \hline
-        \textbf{1968}  & 19 & \cellcolor{green}15 & 21 & 53 & 125 & 205 & \cellcolor{red}220 & 115 & 140 &  57 & 185 & 40 \\
-        \hline
-        \textbf{1969}  & 15 & \cellcolor{green}13 & 14 & 32 & 120 & \cellcolor{red}205 & 190 & 175 &  82 &  65 &  45 & 22 \\
-        \hline
-        \textbf{\dots} &    &    &    &    &     &     &     &     &       &     &     &      \\
-        \hline
-        \textbf{1992}  & 14 & \cellcolor{green}13 & 17 & 62 & 110 & \cellcolor{red}290 & 225 & 215 & 175 &  75 &  46 & 38 \\
-        \hline
-        \textbf{1993}  & 28 & 42 & 38 & 49 & 125 & 200 & 180 & 150 & \cellcolor{red}460 & 170 &  37 & \cellcolor{green}27 \\
-        \hline
-    \end{tabular}
-    \caption{Tableau avec les débits maximums pour chaque mois entre les années 1965 et 1993}
-    \label{tab:serieAnnuelleMaximum}
-\end{table}
+    \includegraphics[width=17cm]{separationCrue.png}
+    \label{fig:separationCrues}
+\end{figure}
+
+\newpage
+
+\section{Questions intuitives}
+Si on prend l'exemple suivant :
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=10cm]{returnPeriodT.png}
+    \caption{Graphique des débits maximums par jour}
+    \label{fig:graphiqueExemple}
+\end{figure}
+
+\begin{itemize}
+    \item Si on prend une période de 20 ans ; le seuil $Q_s$ est dépassé 4 fois. Donc $T_{Q_{s}} = 20/4 = 5$ ans
+    \item 
+\end{itemize}
+
+
+\section{Séries annuelles, avec débits maximaux}
 
 \subsection{Procédure pour déterminer et extrapoler les temps de retour}
 \begin{enumerate}
