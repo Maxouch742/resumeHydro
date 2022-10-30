@@ -34,7 +34,7 @@ Nous avons les données suivantes :
 Le contrôle de la stationnarité se fait en créant le graphique des débits maximales par années (cf. Figure \ref{graph:stationnarite})
 \begin{figure}[H]
     \centering
-    \includegraphics[width=12cm]{stationnarite.png}
+    \input{script/serieAnnuelles_stationnarite.pgf}
     \caption{Stationnarité (étude entre 1965 et 1993)}
     \label{graph:stationnarite}
 \end{figure}
@@ -44,7 +44,7 @@ Le contrôle de la stationnarité se fait en créant le graphique des débits ma
 Afin de contrôler l'homogénéité des débits, il faut tracer un graphique avec les débits maximums mensuels et pour toutes les années (cf. Figure \ref{graph:homogeneite}).
 \begin{figure}[H]
     \centering
-    \includegraphics[width=12cm]{homogeneite.png}
+    \input{script/serieAnnuelles_homogeneite.pgf}
     \caption{Homogénéité (étude entre 1965 et 1993)}
     \label{graph:homogeneite}
 \end{figure}
@@ -59,6 +59,12 @@ Afin de contrôler l'homogénéité des débits, il faut tracer un graphique ave
     \underline{Conseil :} utiliser la \textbf{{\color{red} formule de Hazen}} et utiliser une autre formule pour comparer
 \end{enumerate}
 
+\begin{figure}[h!]
+    \centering
+    \input{script/serieAnnuelles_tempsRetour.pgf}
+    \caption{Homogénéité (étude entre 1965 et 1993)}
+    \label{graph:homogeneite}
+\end{figure}
 
 
 \section{Calcul des paramètres de la loi de Gumbel} \label{sec:parametreLoiGumbel}

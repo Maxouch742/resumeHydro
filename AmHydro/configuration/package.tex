@@ -49,12 +49,13 @@
 \usepackage{lipsum}%                 just for dummy text- not needed for a longtable             
 \usepackage{multicol}%               Colonne dans le texte
 \usepackage{pythontex}%              utiliser python dans latex
+\usepackage{comment}%                commenter des blocs de textes
 \NoAutoSpaceBeforeFDP%               Enlève l'espace automatique avant ":" ça permet notamment d'écrire 1:1000 sans avoir un espace moche (Cet espace est rajouté par le package babel)
 
 
 %========================== COMMANDES DIVERSES ========================== 
 \makeindex%                          permet la création d'un index
-\graphicspath{ {./picture/}{./logos/}{./listings/} }%          sélectionne le chemin où sont stockées les images
+\graphicspath{ {./picture/}{./logos/} }%          sélectionne le chemin où sont stockées les images
 
 \setcounter{secnumdepth}{3}%         Numéroter les sections jusqu'au niveau 3
 \setcounter{tocdepth}{2}%            Créer la table des matières jusqu'au niveau 2, ne pas afficher le niveau 3
