@@ -58,12 +58,13 @@
 
 \definecolor{vertFonce}{RGB}{0, 153, 0}
 \definecolor{orange}{RGB}{255, 128, 0}
+\definecolor{vertExemple}{RGB}{116, 212, 33}
 
 %%%%% HYDROLOGIE
-\newcommand{\ms}{\unit{\metre\cubic\per\second}}%          [m3/s]
-\newcommand{\MS}[1]{\qty{#1}{\metre\cubic\per\second}}%    number [m3/s]
-\newcommand{\mh}{\unit{\metre\cubic\per\hour}}%            [m3/h]
-\newcommand{\MH}[1]{\qty{#1}{\metre\cubic\per\hour}}%      number [m3/h]
+\newcommand{\ms}{\unit{\metre^3 \per\second}}%          [m3/s]
+\newcommand{\MS}[1]{\qty{#1}{\metre^3 \per\second}}%    number [m3/s]
+\newcommand{\mh}{\unit{\metre^3 \per\hour}}%            [m3/h]
+\newcommand{\MH}[1]{\qty{#1}{\metre^3 \per\hour}}%      number [m3/h]
 \newcommand{\ls}{\unit{\litre\per\second}}%                [L/s]
 \newcommand{\LS}[1]{\qty{#1}{\litre\per\second}}%          number [L/s]
 \newcommand{\lh}{\unit{\litre\per\hour}}%                  [L/h]
@@ -71,3 +72,4 @@
 
 \newcommand{\excel}[1]{{\color{vertFonce} \underline{\textit{Fonction Excel :}} #1}}
 \newcommand{\formule}[2]{{\color{orange} \textit{(Formule #1, Tab. #2)}}}
+\newcommand{\exemple}[1]{{\color{vertExemple} \underline{\textbf{Exemple :}} #1}}
