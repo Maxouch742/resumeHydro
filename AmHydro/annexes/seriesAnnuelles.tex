@@ -50,7 +50,7 @@ Afin de contrôler l'homogénéité des débits, il faut tracer un graphique ave
     \exemple{Tableau \ref{tab:gumbelcalcul}}
     \bigskip
     \item Créer les graphiques suivants \\
-    \begin{tabular}{lll}
+    \begin{tabular}{p{3cm}|p{5cm}|p{5cm}}
         \toprule
                                     & \textbf{Variable réduite $U$} & \textbf{Débit selon la loi de Gumbel} \\
         \midrule
@@ -58,7 +58,8 @@ Afin de contrôler l'homogénéité des débits, il faut tracer un graphique ave
                                     &                               & Échelle logarithmique                 \\            
         Ordonnée                    & Débit [\ms]                   & Débit [\ms]                           \\
         \midrule
-        Courbes :                   & ...                           & ...                                   \\
+        \multirow{2}{*}{Courbes}    & Débits observés maximaux en fonction de $U$ & Débits observés maximaux en fonction de $T$ \\
+                                    & Débits calculés Gumbel en fonction de $U$   & Débits calculés Gumbel en fonction de $T$   \\
         \midrule
         Références                  & \exemple{Figure \ref{graph:gumbel_variableU}} & \exemple{Figure \ref{graph:gumbel_tempsRetour}}  \\
         \bottomrule
@@ -71,6 +72,7 @@ Afin de contrôler l'homogénéité des débits, il faut tracer un graphique ave
     \item Procédez à l'étape 3 du paragraphe \ref{sec:parametreLoiGumbel}
     \item Ajoutez la courbe sur les graphiques \ref{graph:gumbel_variableU} et \ref{graph:gumbel_tempsRetour}
 \end{enumerate}
+\exemple{Tableau \ref{tab:gumbelcalcul_extrapolation} \& Figures \ref{graph:debits_gumbel_extrapole}}
 
 \section{Exemple}
 Nous avons les données suivantes :
@@ -177,6 +179,37 @@ Nous avons les données suivantes :
         29            & 155.00                 & 1.02                     & 0.02          & -1.40      & 138.49              \\
         \bottomrule
     \end{tabular}
-    \caption{Paramètre de la loi de Gumbel}
+    \caption{Calculs des débits de Gumbel en fonction du temps de retour associé}
     \label{tab:gumbelcalcul}
 \end{table}
+
+\subsection{Extrapolation}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|r|r|r}
+        \toprule
+        \textbf{Tretour fixé} & \textbf{F(Q)} & \textbf{U} & \textbf{Q (Gumbel)} \\
+        \midrule
+        5                     & 0.80          & 1.50       & 321.83              \\
+        10                    & 0.90          & 2.25       & 369.25              \\
+        30                    & 0.97          & 3.38       & 440.90              \\
+        50                    & 0.98          & 3.90       & 473.61              \\
+        100                   & 0.99          & 4.60       & 517.73              \\
+        400                   & 1.00          & 5.99       & 605.57              \\
+        \bottomrule
+    \end{tabular}
+    \caption{Extrapolation sur des temps de retour choisis}
+    \label{tab:gumbelcalcul_extrapolation}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \subfigure[Variable $U$ \label{graph:gumbelExtra_variableU}]{\resizebox*{0.45\textwidth}{!}{
+        \input{script/serieAnnuelles_loiGumbel_extrapole_U.pgf}
+    }}
+    \subfigure[Temps de retour \label{graph:gumbelExtra_tempsRetour}]{\resizebox*{0.45\textwidth}{!}{
+        \input{script/serieAnnuelles_loiGumbel_extrapole_T.pgf}
+    }}
+    \caption{Débits extrapolés selon la loi de Gumbel}
+    \label{graph:debits_gumbel_extrapole}
+\end{figure}
