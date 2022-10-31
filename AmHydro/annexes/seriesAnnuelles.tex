@@ -8,7 +8,7 @@
 }
 
 
-\section{Contrôler la stationnarité}
+\section{Contrôler la stationnarité} \label{sec:controleStationnarite}
 Le contrôle de la stationnarité se fait en créant le graphique des débits maximums par années. \\
 \exemple{Figure \ref{graph:stationnarite}}
 
@@ -21,7 +21,7 @@ Afin de contrôler l'homogénéité des débits, il faut tracer un graphique ave
 \section{Calcul des temps de retour $T$}
 \begin{enumerate}
     \item Garder les débits maximums annuels
-    \item Classer les débits par ordre croissants
+    \item Classer les débits par ordre décroissants
     \item Inscrire le rang pour chaque débit
     \item Calculer le temps de retour selon la formule choisie (cf. \ref{tab:formuleTempsRetour}) \\
     \underline{Conseil :} utiliser la \textbf{{\color{red} formule de Hazen}} et utiliser une autre formule pour comparer
@@ -101,10 +101,10 @@ Nous avons les données suivantes :
 \begin{figure}[H]
     \centering
     \subfigure[Stationnarité \label{graph:stationnarite}]{\resizebox*{0.45\textwidth}{!}{
-        \input{script/serieAnnuelles_stationnarite.pgf}}
+        \input{script/seriesAnnuelles/serieAnnuelles_stationnarite.pgf}}
     }
     \subfigure[Homogénéité   \label{graph:homogeneite}]{\resizebox*{0.45\textwidth}{!}{
-        \input{script/serieAnnuelles_homogeneite.pgf}}
+        \input{script/seriesAnnuelles/serieAnnuelles_homogeneite.pgf}}
     }
     \caption{Contrôle des données statistiques}
     \label{graph:controleData}
@@ -131,7 +131,7 @@ Nous avons les données suivantes :
 \begin{figure}[H]
     \centering
     \resizebox*{0.50\textwidth}{!}{
-        \input{script/serieAnnuelles_tempsRetour.pgf}
+        \input{script/seriesAnnuelles/serieAnnuelles_tempsRetour.pgf}
     }
     \caption{Calcul du temps de retour}
     \label{graph:calcul_tempsRetour}
@@ -157,10 +157,10 @@ Nous avons les données suivantes :
 \begin{figure}[H]
     \centering
     \subfigure[Variable $U$ \label{graph:gumbel_variableU}]{\resizebox*{0.45\textwidth}{!}{
-        \input{script/serieAnnuelles_loiGumbel_U.pgf}
+        \input{script/seriesAnnuelles/serieAnnuelles_loiGumbel_U.pgf}
     }}
     \subfigure[Temps de retour \label{graph:gumbel_tempsRetour}]{\resizebox*{0.45\textwidth}{!}{
-        \input{script/serieAnnuelles_loiGumbel_T.pgf}
+        \input{script/seriesAnnuelles/serieAnnuelles_loiGumbel_T.pgf}
     }}
     \caption{Débits calculés selon la loi de Gumbel}
     \label{graph:debits_gumbel}
@@ -205,10 +205,10 @@ Nous avons les données suivantes :
 \begin{figure}[H]
     \centering
     \subfigure[Variable $U$ \label{graph:gumbelExtra_variableU}]{\resizebox*{0.45\textwidth}{!}{
-        \input{script/serieAnnuelles_loiGumbel_extrapole_U.pgf}
+        \input{script/seriesAnnuelles/serieAnnuelles_loiGumbel_extrapole_U.pgf}
     }}
     \subfigure[Temps de retour \label{graph:gumbelExtra_tempsRetour}]{\resizebox*{0.45\textwidth}{!}{
-        \input{script/serieAnnuelles_loiGumbel_extrapole_T.pgf}
+        \input{script/seriesAnnuelles/serieAnnuelles_loiGumbel_extrapole_T.pgf}
     }}
     \caption{Débits extrapolés selon la loi de Gumbel}
     \label{graph:debits_gumbel_extrapole}

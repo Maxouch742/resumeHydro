@@ -1,0 +1,62 @@
+\chapter{Calculer un $Q$ pour un $T_\text{retour}$ donné -- \textit{Séries tronquées}}
+
+\fbox{ %fbox est utilisé pour voir les bords de la minipage
+    \begin{minipage}[l]{17cm}
+        ...
+    \end{minipage}
+}
+
+
+\section{Contrôler la stationnarité}
+Idem que pour le paragraphe \ref{sec:controleStationnarite}
+
+\section{Calcul des temps de retour}
+\section{Calcul de la fonction des paramètres de la loi de Gumbel}
+\section{Extrapolation d'un débit en fonction du temps de retour}
+
+
+\section{Exemple}
+Nous avons les données suivantes :
+
+
+
+\subsection{Stationnarité}
+\begin{figure}[H]
+    \centering
+    \resizebox*{0.45\textwidth}{!}{
+        \input{script/seriesTronquees/serieTronquees_stationnarite.pgf}
+    }
+    \caption{Stationnarité d'une série tronquée}
+    \label{graph:stationnarite_serieTronquee}
+\end{figure}
+
+\subsection{Temps de retour calculé}
+Nombre de valeurs = 110 \\
+Nombre d'années = 12
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|r|r}
+        \toprule
+        \textbf{Rang} & \textbf{Débit} & \textbf{Temps de retour} \\
+        \midrule
+        1             & 167.833        & 42.00                    \\
+        2             & 97.748         & 14.00                    \\
+        \dots         &                &                          \\
+        109           & 10.290         & 0.19                     \\
+        110           & 10.224         & 0.19                     \\
+        \bottomrule
+    \end{tabular}
+    \caption{Calcul du temps de retour en fonction du rang et du débit}
+    \label{tab:serieTronquee_tempsRetour}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \resizebox*{0.45\textwidth}{!}{
+        \input{script/seriesTronquees/serieTronquees_tempsRetour.pgf}
+    }
+    \caption{Temps de retour d'une série tronquée}
+    \label{graph:tempsRetour_serieTronquee}
+\end{figure}
+
+\subsection{Loi de Gumbel}
+\subsection{Extrapolation}
