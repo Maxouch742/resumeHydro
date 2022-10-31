@@ -10,17 +10,88 @@
 \section{Contrôler la stationnarité}
 Idem que pour le paragraphe \ref{sec:controleStationnarite}
 
-\section{Calcul des temps de retour}
-Idem que pour le paragraphe \ref{sec:calculTempsRetour}
+\section{Calcul des temps de retour} \label{sec:tempsRetourTronquee}
+\begin{enumerate}
+    \item Garder les débits souhaités (2 par an, ou débits > $Q_s$)
+    \item Classer les débits par ordre décroissant
+    \item Inscrire le rang pour chaque débit
+    \item Compter le nombre d'année que dure les mesures ($n$)
+    \item Cmpter le nombre de valeurs que vous avez
+    \item Calculer le temps de retour selon la formule choisie (cf. Tableau \ref{tab:formuleTempsRetour}) \\
+    Utiliser $n$ comme nombre d'année que dure l'étude statistiques
+\end{enumerate}
 
 
-\section{Calcul de la fonction des paramètres de la loi de Gumbel}
+\section{Calcul de la fonction des paramètres de la loi de Gumbel} \label{sec:loiGumbelTronquee}
+\begin{enumerate}
+    \item Calcul des divers paramètres de la série statistique :
+    \begin{itemize}
+        \item Moyenne des débits observés ; \\
+        \excel{=MOYENNE()}
+        \item Ecart-type de la moyenne des débits observés ; \\
+        \excel{=ECARTYPE.STANDARD()}
+        \item Paramètre $b_\text{exp}$ \formule{3}{\ref{tab:loiGumbelAjuste}}
+        \item Paramètre $a_\text{exp}$ \formule{4}{\ref{tab:loiGumbelAjuste}}
+        \item Paramètre $\lambda$ \formule{5}{\ref{tab:loiGumbelAjuste}}
+        \item Paramètre $b$ \formule{7}{\ref{tab:loiGumbelAjuste}}
+        \item Paramètre $a$ \formule{6}{\ref{tab:loiGumbelAjuste}}
+    \end{itemize}
+    \exemple{Tableau \ref{tab:param_Gumbel_tronquees}}
+    \item Calcul du débit Gumbel pour chaque temps de retour
+    \begin{enumerate}
+        \item Calcul de la fonction $F(Q_\text{obs})$ pour chaque débit \formule{5}{\ref{tab:loiGumbel}} ;
+        \item Paramètre $U$ \formule{8}{\ref{tab:loiGumbel}}
+        \item Débit $Q_\text{Gumbel}$ \formule{7}{\ref{tab:loiGumbel}}
+    \end{enumerate}
+    \nota{Si des valeurs $F(Q)$ < 0 ; ne pas continuer les calculs pour ces valeurs-là} \\
+    \exemple{Tableau \ref{tab:gumbelcalcul_tronquees}}
+    \bigskip
+    \item Créer les graphiques suivants \\
+    \begin{tabular}{p{3cm}|p{5cm}|p{5cm}}
+        \toprule
+                                    & \textbf{Variable réduite $U$} & \textbf{Débit selon la loi de Gumbel} \\
+        \midrule
+        \multirow{2}{*}{Abscisse}   & Variable réduite $U$ [-]      & Temps [années]                        \\
+                                    &                               & Échelle logarithmique                 \\            
+        Ordonnée                    & Débit [\ms]                   & Débit [\ms]                           \\
+        \midrule
+        \multirow{2}{*}{Courbes}    & Débits observés maximaux en fonction de $U$ & Débits observés maximaux en fonction de $T$ \\
+                                    & Débits calculés Gumbel en fonction de $U$   & Débits calculés Gumbel en fonction de $T$   \\
+        \midrule
+        Références                  & \exemple{Figure \ref{graph:gumbel_variableU_tronquee}} & \exemple{Figure \ref{graph:gumbel_tempsRetour}}  \\
+        \bottomrule
+    \end{tabular}
+\end{enumerate}
+\bigskip
+\nota{Si vous avez des valeurs $F(Q)$ négatives ; il ne donc pas prendre en compte les débits fautifs et il faut refaire le calcul, des étapes \ref{sec:tempsRetourTronquee} à \ref{sec:loiGumbelTronquee}}
+
 \section{Extrapolation d'un débit en fonction du temps de retour}
 
 
 \section{Exemple}
 Nous avons les données suivantes :
-
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \textbf{Jour} & \textbf{Débit} \\
+        \hline \hline
+        10.11.1900    & 22.36          \\
+        \hline
+        11.12.1900    & 26.251         \\
+        \hline
+        22.01.1901    & 21.625         \\
+        \hline
+        05.03.1901    & 20.368         \\
+        \hline
+        \dots         & \dots          \\
+        \hline
+        01.12.1919    & 50.923         \\
+        \hline
+    \end{tabular}
+    \caption{Tableau avec les débits maximums pour chaque mois entre les années 1965 et 1993}
+    \label{tab:seriesAnnuellesMaximum}
+\end{table}
 
 
 \subsection{Stationnarité}
@@ -36,30 +107,87 @@ Nous avons les données suivantes :
 \subsection{Temps de retour calculé}
 Nombre de valeurs = 110 \\
 Nombre d'années = 12
-\begin{table}[H]
-    \centering
-    \begin{tabular}{l|r|r}
-        \toprule
-        \textbf{Rang} & \textbf{Débit} & \textbf{Temps de retour} \\
-        \midrule
-        1             & 167.833        & 42.00                    \\
-        2             & 97.748         & 14.00                    \\
-        \dots         &                &                          \\
-        109           & 10.290         & 0.19                     \\
-        110           & 10.224         & 0.19                     \\
-        \bottomrule
-    \end{tabular}
-    \caption{Calcul du temps de retour en fonction du rang et du débit}
-    \label{tab:serieTronquee_tempsRetour}
-\end{table}
-\begin{figure}[H]
-    \centering
-    \resizebox*{0.45\textwidth}{!}{
-        \input{script/seriesTronquees/serieTronquees_tempsRetour.pgf}
-    }
-    \caption{Temps de retour d'une série tronquée}
-    \label{graph:tempsRetour_serieTronquee}
-\end{figure}
+\begin{multicols}{2}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l|r|r}
+            \toprule
+            \textbf{Rang} & \textbf{Débit} & \textbf{Temps de retour} \\
+            \midrule
+            1             & 167.833        & 42.00                    \\
+            2             & 97.748         & 14.00                    \\
+            \dots         & \dots          & \dots                    \\
+            109           & 10.290         & 0.19                     \\
+            110           & 10.224         & 0.19                     \\
+            \bottomrule
+        \end{tabular}
+        \caption{Calcul du temps de retour en fonction du rang et du débit}
+        \label{tab:serieTronquee_tempsRetour}
+    \end{table}
+
+    \columnbreak
+
+    \begin{figure}[H]
+        \centering
+        \resizebox*{0.45\textwidth}{!}{
+            \input{script/seriesTronquees/serieTronquees_tempsRetour.pgf}
+        }
+        \caption{Temps de retour d'une série tronquée}
+        \label{graph:tempsRetour_serieTronquee}
+    \end{figure}
+\end{multicols}
 
 \subsection{Loi de Gumbel}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|r}
+        \toprule
+        \textbf{Paramètre} & \textbf{Valeur} \\
+        \midrule
+        Moyenne            & 24.534          \\
+        Ecart-type         & 20.989          \\
+        \midrule
+        $a_\text{exp}$     & 3.544           \\
+        $b_\text{exp}$     & 20.989          \\
+        \midrule
+        $\lambda$          & 5.5             \\
+        $a$                & 15.088          \\
+        $b$                & 16.365          \\
+        \bottomrule
+    \end{tabular}
+    \caption{Paramètre de la loi de Gumbel pour une série tronquée}
+    \label{tab:param_Gumbel_tronquees}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|r|r|r|r|r}
+        \toprule
+        \textbf{Rang} & \textbf{Débit observé} & \textbf{Tretour (Hazen)} & \textbf{F(Q)} & \textbf{U} & \textbf{Q (Gumbel)} \\
+        \midrule
+        1             & 167.83                 & 40.00                    & 0.97          & 3.68       & 75.25               \\
+        2             & 97.75                  & 13.33                    & 0.93          & 2.55       & 56.84               \\
+        \dots         & \dots                  & \dots                    & \dots         & \dots      & \dots               \\
+        20            & 32.53                  & 1.03                     & 0.02          & -1.31      & -6.27               \\
+        21            & 32.01                  & 0.98                     & nan           & nan        & nan                 \\
+        \dots         & \dots                  & \dots                    & \dots         & \dots      & \dots               \\
+        110           & 10.22                  & 0.18                     & nan           & nan        & nan                 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Calculs des débits de Gumbel en fonction du temps de retour associé}
+    \label{tab:gumbelcalcul_tronquees}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \subfigure[Variable $U$ \label{graph:gumbel_variableU_tronquee}]{\resizebox*{0.45\textwidth}{!}{
+        \input{script/seriesTronquees/serieTronquees_U.pgf}
+    }}
+    \subfigure[Temps de retour \label{graph:gumbel_tempsRetour}]{\resizebox*{0.45\textwidth}{!}{
+        \input{script/seriesTronquees/serieTronquees_T.pgf}
+    }}
+    \caption{Débits calculés selon la loi de Gumbel}
+    \label{graph:debits_gumbel_tronquee}
+\end{figure}
+
 \subsection{Extrapolation}

@@ -23,7 +23,7 @@ Afin de contrôler l'homogénéité des débits, il faut tracer un graphique ave
     \item Garder les débits maximums annuels
     \item Classer les débits par ordre décroissants
     \item Inscrire le rang pour chaque débit
-    \item Calculer le temps de retour selon la formule choisie (cf. \ref{tab:formuleTempsRetour}) \\
+    \item Calculer le temps de retour selon la formule choisie (cf. Tableau \ref{tab:formuleTempsRetour}) \\
     \underline{Conseil :} utiliser la \textbf{{\color{red} formule de Hazen}} et utiliser une autre formule pour comparer
 \end{enumerate}
 \exemple{Figure \ref{graph:calcul_tempsRetour} \& Tableau \ref{tab:calcul_tempsRetour}}
@@ -31,19 +31,19 @@ Afin de contrôler l'homogénéité des débits, il faut tracer un graphique ave
 
 \section{Calcul des paramètres de la loi de Gumbel} \label{sec:parametreLoiGumbel}
 \begin{enumerate}
-    \item Calcul de la fonction $F(Q_\text{obs})$ pour chaque débit \formule{5}{\ref{tab:loiGumbel}} ;
     \item Calcul des divers paramètres de la série statistique :
     \begin{itemize}
         \item Moyenne des débits observés ; \\
         \excel{=MOYENNE()}
         \item Ecart-type de la moyenne des débits observés ; \\
         \excel{=ECARTYPE.STANDARD()}
-        \item Paramètre $a$ \formule{3}{\ref{tab:loiGumbel}}
         \item Paramètre $b$ \formule{4}{\ref{tab:loiGumbel}}
+        \item Paramètre $a$ \formule{3}{\ref{tab:loiGumbel}}
     \end{itemize}
     \exemple{Tableau \ref{tab:param_Gumbel}}
     \item Calcul du débit Gumbel pour chaque temps de retour
     \begin{enumerate}
+        \item Calcul de la fonction $F(Q_\text{obs})$ pour chaque débit \formule{5}{\ref{tab:loiGumbel}} ;
         \item Paramètre $U$ \formule{8}{\ref{tab:loiGumbel}}
         \item Débit $Q_\text{Gumbel}$ \formule{7}{\ref{tab:loiGumbel}}
     \end{enumerate}
@@ -86,7 +86,7 @@ Nous avons les données suivantes :
         \hline
         \textbf{1966}  & \cellcolor{green}17 & 19 & 17 & 47 & 105 & \cellcolor{red}175 & 155 & 150 &  97 & 125 &  25 & 20 \\
         \hline
-        \textbf{\dots} &    &    &    &    &     &     &     &     &       &     &     &      \\
+        \textbf{\dots} & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots & \dots \\
         \hline
         \textbf{1992}  & 14 & \cellcolor{green}13 & 17 & 62 & 110 & \cellcolor{red}290 & 225 & 215 & 175 &  75 &  46 & 38 \\
         \hline
@@ -111,31 +111,35 @@ Nous avons les données suivantes :
 \end{figure}
 
 \subsection{Temps de retour calculé}
-\begin{table}[H]
-    \centering
-    \begin{tabular}{l|r|r}
-        \toprule
-        \textbf{Rang} & \textbf{Débit} & \textbf{Temps de retour} \\
-        \midrule
-        1             &          495.0 &                    19.33 \\
-        2             &          460.0 &                    11.60 \\
-        \dots         &                &                          \\
-        28            &          160.0 &                     1.02 \\
-        29            &          155.0 &                     0.98 \\
-        \bottomrule
-    \end{tabular}
-    \caption{Calcul du temps de retour en fonction du rang et du débit}
-    \label{tab:calcul_tempsRetour}
-\end{table}
+\begin{multicols}{2}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l|r|r}
+            \toprule
+            \textbf{Rang} & \textbf{Débit} & \textbf{Temps de retour} \\
+            \midrule
+            1             &          495.0 &                    19.33 \\
+            2             &          460.0 &                    11.60 \\
+            \dots         &  \dots         & \dots                    \\
+            28            &          160.0 &                     1.02 \\
+            29            &          155.0 &                     0.98 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Calcul du temps de retour en fonction du rang et du débit}
+        \label{tab:calcul_tempsRetour}
+    \end{table}
 
-\begin{figure}[H]
-    \centering
-    \resizebox*{0.50\textwidth}{!}{
-        \input{script/seriesAnnuelles/serieAnnuelles_tempsRetour.pgf}
-    }
-    \caption{Calcul du temps de retour}
-    \label{graph:calcul_tempsRetour}
-\end{figure}
+    \columnbreak
+
+    \begin{figure}[H]
+        \centering
+        \resizebox*{0.50\textwidth}{!}{
+            \input{script/seriesAnnuelles/serieAnnuelles_tempsRetour.pgf}
+        }
+        \caption{Calcul du temps de retour}
+        \label{graph:calcul_tempsRetour}
+    \end{figure}
+\end{multicols}
 
 \subsection{Loi de Gumbel}
 \begin{table}[H]
@@ -174,7 +178,7 @@ Nous avons les données suivantes :
         \midrule
         1             & 495.00                 & 58.00                    & 0.98          & 4.05       & 483.08              \\
         2             & 460.00                 & 19.33                    & 0.95          & 2.94       & 412.53              \\
-        \dots         &                        &                          &               &            &                     \\
+        \dots         & \dots                  & \dots                    & \dots         & \dots      & \dots               \\
         28            & 160.00                 & 1.05                     & 0.05          & -1.09      & 158.43              \\
         29            & 155.00                 & 1.02                     & 0.02          & -1.40      & 138.49              \\
         \bottomrule
