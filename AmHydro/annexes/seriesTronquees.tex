@@ -39,9 +39,9 @@ Idem que pour le paragraphe \ref{sec:controleStationnarite}
     \exemple{Tableau \ref{tab:param_Gumbel_tronquees}}
     \item Calcul du débit Gumbel pour chaque temps de retour
     \begin{enumerate}
-        \item Calcul de la fonction $F(Q_\text{obs})$ pour chaque débit \formule{5}{\ref{tab:loiGumbel}} ;
-        \item Paramètre $U$ \formule{8}{\ref{tab:loiGumbel}}
-        \item Débit $Q_\text{Gumbel}$ \formule{7}{\ref{tab:loiGumbel}}
+        \item Calcul de la fonction $F(Q_\text{obs})$ pour chaque débit \formule{9}{\ref{tab:loiGumbelAjuste}} ;
+        \item Paramètre $U$ \formule{11}{\ref{tab:loiGumbelAjuste}}
+        \item Débit $Q_\text{Gumbel}$ \formule{10}{\ref{tab:loiGumbelAjuste}}
     \end{enumerate}
     \nota{Si des valeurs $F(Q)$ < 0 ; ne pas continuer les calculs pour ces valeurs-là} \\
     \exemple{Tableau \ref{tab:gumbelcalcul_tronquees}}
@@ -138,6 +138,7 @@ Nombre d'années = 20
 \end{multicols}
 
 \subsection{Loi de Gumbel}
+\subsubsection{Valeurs positives et négatives}
 \begin{table}[H]
     \centering
     \begin{tabular}{l|r}
@@ -190,8 +191,8 @@ Nombre d'années = 20
     \label{graph:debits_gumbel_tronquee}
 \end{figure}
 
+\subsubsection{Traitement des valeurs négatives}
 Si on enlève les données négatives, on obtient alors les éléments suivants :
-\paragraph{Temps de retour}
 Nombre de valeurs = 20 \\
 Nombre d'années = 19
 \begin{multicols}{2}
@@ -253,10 +254,10 @@ Nombre d'années = 19
         \textbf{Rang} & \textbf{Débit observé} & \textbf{Tretour (Hazen)} & \textbf{F(Q)} & \textbf{U} & \textbf{Q (Gumbel)} \\
         \midrule
         1             & 167.83                 & 38.00                    & 0.97          & 3.62       & 130.18              \\
-        2             & 97.75                  & 12.67                    & 0.92          & 2.50       & 103.27              \\
+        2             & 97.748                 & 12.67                    & 0.92          & 2.50       & 103.27              \\
         \dots         & \dots                  & \dots                    & \dots         & \dots      & \dots               \\
-        19            & 32.53                  & 1.03                     & 0.02          & -1.31      & -6.27               \\
-        20            & 32.01                  & 0.98                     & nan           & nan        & nan                 \\
+        19            & 33.55                  & 1.03                     & 0.02          & -1.31      & -6.27               \\
+        20            & 32.526                 & 0.97                     & nan           & nan        & nan                 \\
         \bottomrule
     \end{tabular}
     \caption{Calculs des débits de Gumbel en fonction du temps de retour associé}
