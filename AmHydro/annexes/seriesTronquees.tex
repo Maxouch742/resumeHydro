@@ -48,18 +48,18 @@ Idem que pour le paragraphe \ref{sec:controleStationnarite}
     \bigskip
     \item Créer les graphiques suivants \\
     \begin{tabular}{p{3cm}|p{5cm}|p{5cm}}
-        \toprule
+        \hline
                                     & \textbf{Variable réduite $U$} & \textbf{Débit selon la loi de Gumbel} \\
-        \midrule
+        \hline
         \multirow{2}{*}{Abscisse}   & Variable réduite $U$ [-]      & Temps [années]                        \\
                                     &                               & Échelle logarithmique                 \\            
         Ordonnée                    & Débit [\ms]                   & Débit [\ms]                           \\
-        \midrule
+        \hline
         \multirow{2}{*}{Courbes}    & Débits observés maximaux en fonction de $U$ & Débits observés maximaux en fonction de $T$ \\
                                     & Débits calculés Gumbel en fonction de $U$   & Débits calculés Gumbel en fonction de $T$   \\
-        \midrule
+        \hline
         Références                  & \exemple{Figure \ref{graph:gumbel_variableU_tronquee}} & \exemple{Figure \ref{graph:gumbel_tempsRetour}}  \\
-        \bottomrule
+        \hline
     \end{tabular}
 \end{enumerate}
 \bigskip
@@ -111,15 +111,15 @@ Nombre d'années = 20
     \begin{table}[H]
         \centering
         \begin{tabular}{l|r|r}
-            \toprule
+            \hline
             \textbf{Rang} & \textbf{Débit} & \textbf{Temps de retour} \\
-            \midrule
+            \hline
             1             & 167.833        & 42.00                    \\
             2             & 97.748         & 14.00                    \\
             \dots         & \dots          & \dots                    \\
             109           & 10.290         & 0.19                     \\
             110           & 10.224         & 0.19                     \\
-            \bottomrule
+            \hline
         \end{tabular}
         \caption{Calcul du temps de retour en fonction du rang et du débit}
         \label{tab:serieTronquee_tempsRetour}
@@ -142,9 +142,9 @@ Nombre d'années = 20
 \begin{table}[H]
     \centering
     \begin{tabular}{l|r}
-        \toprule
+        \hline
         \textbf{Paramètre} & \textbf{Valeur} \\
-        \midrule
+        \hline
         Moyenne            & 24.534          \\
         Ecart-type         & 20.989          \\
         \midrule
@@ -154,7 +154,7 @@ Nombre d'années = 20
         $\lambda$          & 5.5             \\
         $a$                & 15.088          \\
         $b$                & 16.365          \\
-        \bottomrule
+        \hline
     \end{tabular}
     \caption{Paramètre de la loi de Gumbel pour une série tronquée}
     \label{tab:param_Gumbel_tronquees}
@@ -163,9 +163,9 @@ Nombre d'années = 20
 \begin{table}[H]
     \centering
     \begin{tabular}{l|r|r|r|r|r}
-        \toprule
+        \hline
         \textbf{Rang} & \textbf{Débit observé} & \textbf{Tretour (Hazen)} & \textbf{F(Q)} & \textbf{U} & \textbf{Q (Gumbel)} \\
-        \midrule
+        \hline
         1             & 167.83                 & 40.00                    & 0.97          & 3.68       & 75.25               \\
         2             & 97.75                  & 13.33                    & 0.93          & 2.55       & 56.84               \\
         \dots         & \dots                  & \dots                    & \dots         & \dots      & \dots               \\
@@ -173,7 +173,7 @@ Nombre d'années = 20
         21            & 32.01                  & 0.98                     & nan           & nan        & nan                 \\
         \dots         & \dots                  & \dots                    & \dots         & \dots      & \dots               \\
         110           & 10.22                  & 0.18                     & nan           & nan        & nan                 \\
-        \bottomrule
+        \hline
     \end{tabular}
     \caption{Calculs des débits de Gumbel en fonction du temps de retour associé}
     \label{tab:gumbelcalcul_tronquees}
@@ -199,15 +199,15 @@ Nombre d'années = 19
     \begin{table}[H]
         \centering
         \begin{tabular}{l|r|r}
-            \toprule
+            \hline
             \textbf{Rang} & \textbf{Débit} & \textbf{Temps de retour} \\
-            \midrule
+            \hline
             1             & 167.833        & 38.00                    \\
             2             & 97.748         & 12.67                    \\
             \dots         & \dots          & \dots                    \\
             19            & 33.557         & 1.03                    \\
             20            & 32.526         & 0.97                     \\
-            \bottomrule
+            \hline
         \end{tabular}
         \caption{Calcul du temps de retour en fonction du rang et du débit}
         \label{tab:serieTronquee2_tempsRetour}
@@ -229,19 +229,19 @@ Nombre d'années = 19
 \begin{table}[H]
     \centering
     \begin{tabular}{l|r}
-        \toprule
+        \hline
         \textbf{Paramètre} & \textbf{Valeur} \\
-        \midrule
+        \hline
         Moyenne            & 57.367          \\
         Ecart-type         & 30.650          \\
-        \midrule
+        \hline
         $a_\text{exp}$     & 26.717          \\
         $b_\text{exp}$     & 30.650          \\
-        \midrule
+        \hline
         $\lambda$          & 0.95            \\
         $a$                & 43.573          \\
         $b$                & 23.898          \\
-        \bottomrule
+        \hline
     \end{tabular}
     \caption{Paramètre de la loi de Gumbel pour une série tronquée}
     \label{tab:param_Gumbel_tronquees2}
@@ -250,15 +250,15 @@ Nombre d'années = 19
 \begin{table}[H]
     \centering
     \begin{tabular}{l|r|r|r|r|r}
-        \toprule
+        \hline
         \textbf{Rang} & \textbf{Débit observé} & \textbf{Tretour (Hazen)} & \textbf{F(Q)} & \textbf{U} & \textbf{Q (Gumbel)} \\
-        \midrule
+        \hline
         1             & 167.83                 & 38.00                    & 0.97          & 3.62       & 130.18              \\
         2             & 97.748                 & 12.67                    & 0.92          & 2.50       & 103.27              \\
         \dots         & \dots                  & \dots                    & \dots         & \dots      & \dots               \\
         19            & 33.55                  & 1.03                     & 0.02          & -1.31      & -6.27               \\
         20            & 32.526                 & 0.97                     & nan           & nan        & nan                 \\
-        \bottomrule
+        \hline
     \end{tabular}
     \caption{Calculs des débits de Gumbel en fonction du temps de retour associé}
     \label{tab:gumbelcalcul_tronquees}
