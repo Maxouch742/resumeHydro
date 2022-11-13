@@ -3,23 +3,23 @@
 \section{Temps de retour}
 \begin{table}[H]
     \centering
-    \begin{tabular}{ccc}
+    \begin{tabular}{cccc}
         \toprule
-        \textbf{Nom} & \textbf{Formule}            & \textbf{Notes}     \\
+        \textbf{Nom} & \textbf{Formule}            & \textbf{Temps (min et max)} & \textbf{Notes}     \\
         \toprule
-        Weibull      & $\cfrac{n+1}{r}$            & Utilisée aux USA   \\
+        Weibull      & $\cfrac{n+1}{r}$            & $n+1$                       & Utilisée aux USA   \\
         \midrule
-        Médiane      & $\cfrac{n+0.365}{r-0.3175}$ &                    \\
+        Médiane      & $\cfrac{n+0.365}{r-0.3175}$ & $1.47 \cdot n + 0.53$       &                    \\
         \midrule
-        Hosking      & $\cfrac{n}{r-0.35}$         &                    \\
+        Hosking      & $\cfrac{n}{r-0.35}$         & $1.54 \cdot n$              &                    \\
         \midrule
-        Blom         & $\cfrac{n+0.25}{r-0.375}$   &                    \\
+        Blom         & $\cfrac{n+0.25}{r-0.375}$   & $1.6 \cdot n + 0.4$         &                    \\
         \midrule
-        Cunnane      & $\cfrac{n+0.20}{r-0.40}$    &                    \\
+        Cunnane      & $\cfrac{n+0.20}{r-0.40}$    & $1.67 \cdot n + 0.33$       &                    \\
         \midrule
-        Gringorten   & $\cfrac{n+0.12}{r-0.44}$    &                    \\
+        Gringorten   & $\cfrac{n+0.12}{r-0.44}$    & $1.79 \cdot n + 0.21$       &                    \\
         \arrayrulecolor{red} \midrule
-        Hazen        & $\cfrac{n}{r-0.5}$          & Utilisée en France \\
+        Hazen        & $\cfrac{n}{r-0.5}$          & $2\cdot n$                  & Utilisée en France \\
         \bottomrule
     \end{tabular}
     \caption{Différentes formules de calculs des temps de retour. $n$ est le nombre d'années total de l'étude; $r$ est le rang}
@@ -40,7 +40,7 @@
         \hline
         4  & $b$                                & $b = \cfrac{\sqrt{6}}{\pi} \cdot \sigma_{\overline{Q}_\text{mes}}$                                                                        & \\
         \hline
-        5  & $F(Q)$                             & $F(Q) = 1-\cfrac{1}{T}$                                                                                                                   & \\
+        5  & $F(Q)$                             & $F(Q) = 1-\cfrac{1}{T}$                                                                                                                   & $T = \cfrac{1}{1-F(Q)}$     \\
         \hdashline                   
         6  & $F(Q)$                             & $F(Q) = e^{-e^{\frac{- \left(Q-a\right)}{b}}}$                                                                                            & \\
         \hline
@@ -66,13 +66,13 @@
         \hline
         4  & $b_\text{exp}$                     & $b_\text{exp} = \sigma_{\overline{Q}_\text{mes}}$                                                                                         & \\
         \hline
-        5  & $\lambda$                          & $\lambda = \cfrac{\text{nombre de débits}}{\text{nombre de valeurs}}$                                                                     & \\                                               
+        5  & $\lambda$                          & $\lambda = \cfrac{\text{nombre de débits}}{\text{nombre d'années d'études}}$                                                                     & \\                                               
         \hline
         6  & $a$                                & $a = a_\text{exp} + b_\text{exp} \cdot \ln \left(\lambda\right)$                                                                          & \\                                                                                         
         \hline
         7  & $b$                                & $b = b_\text{exp}$                                                                                                                        & \\
         \hline
-        8  & $F(Q)$                             & $F(Q) = 1-\cfrac{1}{T}$                                                                                                                   & $T = \cfrac{1}{1-F(Q)} \\
+        8  & $F(Q)$                             & $F(Q) = 1-\cfrac{1}{T}$                                                                                                                   & $T = \cfrac{1}{1-F(Q)}$ \\
         \hdashline                   
         9  & $F(Q)$                             & $F(Q) = e^{-e^{\frac{- \left(Q-a\right)}{b}}}$                                                                                            & \\
         \hline
@@ -105,3 +105,9 @@
            &= \MH{3.6e3} \\
            &= \LH{3.6e6} \\
 \end{align*}
+
+\section{Reformulation}
+\begin{eqnarray*}
+    a = \overline{Q}_\text{mes} - 0.5772 \cdot b                      \qquad  \overline{Q}_\text{mes} = a + 0.5772 \cdot b  \qquad  b = \cfrac{\overline{Q}_\text{mes} - a}{0.5772} \\
+    b = \cfrac{\sqrt{6}}{\pi} \cdot \sigma_{\overline{Q}_\text{mes}}  \qquad  \sigma_{\overline{Q}_\text{mes}} = b \cdot \cfrac{\pi}{\sqrt{6}}                  \\
+\end{eqnarray*}

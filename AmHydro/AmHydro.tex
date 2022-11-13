@@ -24,11 +24,11 @@
 
     % Première partie (numérotation en chiffres romain)
     \pagestyle{front}  
-    \tableofcontents
+    \tableofcontents \label{chap:sommaire}
     \newpage
 
     % Deuxième partie (numérotation en chiffres arabes)
-    \thispagestyle{main}
+    \pagestyle{main}
 
     \input{chapter/introduction.tex}
     \input{chapter/calculDebit.tex}
